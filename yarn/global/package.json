@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "create-expo-app": "^1.1.5",
+    "create-next-app": "12",
+    "create-react-app": "^5.0.1",
+    "create-vite": "^4.0.0",
+    "expo-cli": "^6.1.0",
+    "uri-scheme": "^1.0.121",
+    "vite": "^4.0.0"
+  }
+}

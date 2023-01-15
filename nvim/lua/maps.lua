@@ -1,21 +1,17 @@
 local keymap = vim.keymap
 
--- Do not yank when using x
-keymap.set('n', 'x', '"_x"')
-keymap.set('n', '+', '<C-a>')
-keymap.set('n', '-', '<C-x>')
-
 -- New tab
-keymap.set('n','te', ':tabedit<Return>', { silent = true })
+keymap.set('n', 'te', ':tabedit<Return>', { silent = true })
 -- Split window
-keymap.set('n','ss', ':split<Return><C-w>w', { silent = true })
-keymap.set('n','sv', ':vsplit<Return>', { silent = true })
+keymap.set('n', 'ss', ':split<Return><C-w>w', { silent = true })
+keymap.set('n', 'sv', ':vsplit<Return>', { silent = true })
+
 -- Move window
 keymap.set('n', '<Space>', '<C-w>w')
-keymap.set('', 's<left>', '<C-w>h')
-keymap.set('', 's<up>', '<C-w>k')
-keymap.set('', 's<down>', '<C-w>j')
-keymap.set('', 's<right>', '<C-w>l')
+keymap.set('', 's<h>', '<C-w>h')
+keymap.set('', 's<j>', '<C-w>k')
+keymap.set('', 's<k>', '<C-w>j')
+keymap.set('', 's<l>', '<C-w>l')
 keymap.set('', 'sh', '<C-w>h')
 keymap.set('', 'sk', '<C-w>k')
 keymap.set('', 'sj', '<C-w>j')
