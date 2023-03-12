@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@expo/ngrok": "^4.1.0",
     "create-expo-app": "^1.1.5",
     "create-next-app": "12",
     "create-react-app": "^5.0.1",
