@@ -8,11 +8,10 @@ vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
-  -- use 'ellisonleao/gruvbox.nvim'
-  use "olimorris/onedarkpro.nvim"
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
 
+  use 'ray-x/lsp_signature.nvim'
   use 'nvim-lualine/lualine.nvim' -- statusline
   use 'nvim-lua/plenary.nvim' -- common utilities
   use 'onsails/lspkind-nvim' -- vscode-like pictograms
@@ -54,5 +53,10 @@ packer.startup(function(use)
 
   use 'lewis6991/gitsigns.nvim'
   use 'dinhhuy258/git.nvim'
+
+  -- colorschemes
+  use 'ellisonleao/gruvbox.nvim'
+  use 'olimorris/onedarkpro.nvim'
+  use 'folke/tokyonight.nvim'
 
 end)

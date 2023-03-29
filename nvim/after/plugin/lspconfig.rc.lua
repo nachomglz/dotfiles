@@ -15,3 +15,10 @@ local on_attach = function(client, bufnr)
 end
 vim.diagnostic.config({ virtual_text=false})
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { noremap=true, silent=true})
+
+-- TypeScript
+nvim_lsp.tsserver.setup {
+  on_attach = on_attach,
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  cmd = { "typescript-language-server", "--stdio" }
+}

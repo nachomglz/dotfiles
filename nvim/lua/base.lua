@@ -2,9 +2,7 @@ vim.cmd('autocmd!')
 
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
-vim.opt.fileencoding = 'utf-8'
-
-vim.wo.number = true
+vim.opt.fileencoding = 'utf-8' vim.wo.number = true
 
 vim.opt.title = true
 vim.opt.autoindent = true
@@ -40,7 +38,8 @@ vim.opt.formatoptions:append { 'r' }
 -- Add gruvbox theme and colorscheme
 vim.o.background = "dark"
 -- vim.cmd([[colorscheme gruvbox]])
-vim.cmd([[colorscheme onedark]])
+-- vim.cmd([[colorscheme onedark]])
+vim.cmd([[colorscheme tokyonight]])
 
 -- Relative line number
 vim.opt.rnu = true
