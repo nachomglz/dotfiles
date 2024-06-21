@@ -4,3 +4,5 @@ linearmouse/
 raycast/
 simple-update-notifier/
 yarn/
+
+tsconfig.json
