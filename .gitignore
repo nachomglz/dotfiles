@@ -5,4 +5,6 @@ raycast/
 simple-update-notifier/
 yarn/
 
+tmux/plugins
+
 tsconfig.json
