@@ -39,3 +39,10 @@ opt.clipboard:append("unnamedplus")
 -- split windows options
 opt.splitright = true
 opt.splitbelow = true
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+	end,
+})
