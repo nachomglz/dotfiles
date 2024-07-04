@@ -27,3 +27,10 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "go to next tab" })
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "go to previous tab" })
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "open current buffer in new tab" })
+
+-- text management
+vim.keymap.set("n", "<leader>r", ":%s/<C-r><C-w>/", { desc = "Replace word under cursor" })
+
+vim.keymap.set({ "v" }, "<leader>rl", function()
+	return ":s/<C-r><C-w>/ /g<left><left><C-h>"
+end, { expr = true, desc = "Replace word under cursor in selected lines" })
