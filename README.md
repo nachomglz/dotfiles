@@ -61,6 +61,24 @@ rm -rf temp-dotfiles
 - Tmux is configured to use **vi** keybindings in scroll mode.
 - Every vi/vim/neovim **yank** functionality is configured to copy yanked text to the clipboard.
 
+### Copilot
+
+- To use Github Copilot, you need to install the Copilot extension in Neovim using Lazy.
+
+```
+:Lazy
+```
+
+- Then press the (I) key to install all the new dependencies.
+
+- After that, you can configure Copilot using the following command:
+
+```
+:Copilot setup
+```
+
+- This will take you to login in Github and generate a token for Copilot.
+
 ## ✨ Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
