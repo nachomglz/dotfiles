@@ -1,0 +1,5 @@
+# include dracula.conf
+# include gruvbox.conf
+include everforest.conf
+
+font_family	JetBrains Mono
