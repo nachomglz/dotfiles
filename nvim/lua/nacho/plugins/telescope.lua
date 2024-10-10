@@ -31,6 +31,7 @@ return {
 					"build/",
 					"dist/",
 				},
+				layout_config = { prompt_position = "top" },
 			},
 		})
 
