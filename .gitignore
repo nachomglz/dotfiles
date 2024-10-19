@@ -1,8 +1,5 @@
 node_modules/
-configstore/
-linearmouse/
 raycast/
-simple-update-notifier/
 yarn/
 
 tmux/plugins
