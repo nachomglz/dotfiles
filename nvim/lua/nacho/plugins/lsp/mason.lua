@@ -29,7 +29,6 @@ return {
 			ensure_installed = {
 				"astro",
 				"bashls",
-				-- "tsserver",
 				"ts_ls",
 				"html",
 				"htmx",
@@ -45,7 +44,6 @@ return {
 				"dockerls",
 				"docker_compose_language_service",
 				-- "gopls",
-				-- "rust_analyzer",
 			},
 		})
 
