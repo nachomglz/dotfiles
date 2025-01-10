@@ -2,8 +2,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="refined" # set by `omz`
 
-source ~/.config/zsh_aliases
-
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
@@ -18,7 +16,7 @@ export NPM_TOKEN=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
 export AWS_PROFILE=AWSAdministratorAccess-271528873227
 
 # pnpm
-export PNPM_HOME="/Users/nmartingonzalez/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -120,3 +118,5 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+source ~/.config/zsh_aliases
