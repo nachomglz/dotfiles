@@ -40,3 +40,16 @@ alias kedit='keditt'
 # Miscelaneous aliases
 list() { eza -la --group-directories-first --icons "$@"; }
 alias ls="list --color=auto"
+
+# Docker
+
+dremove(){docker ps -a | fzf | awk '{print $1}' | xargs -I {} docker rm {}}
+alias drm='dremove'
+
+dexec(){docker ps | fzf | awk '{print $1}' | xargs -I {} docker exec -it {} bash}
+alias de='dexec'
+
+# Do the same but with a custom command to run inside the container instead of batch, which will be provided as the last argument
+dcustomexec(){docker ps | fzf | awk '{print $1}' | xargs -I {} docker exec -it {} $1}
+alias dce='dexec'
+

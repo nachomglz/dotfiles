@@ -8,3 +8,5 @@ yarn/
 tmux/plugins
 
 tsconfig.json
+
+github-copilot/apps.json
