@@ -119,4 +119,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 source ~/.config/zsh_aliases
+
