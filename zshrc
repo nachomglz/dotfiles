@@ -123,3 +123,5 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 source ~/.config/zsh_aliases
 
+[ -f ~/.zshrc_local ] && source ~/.zshrc_local
+
