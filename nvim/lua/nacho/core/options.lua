@@ -27,7 +27,6 @@ opt.cursorline = true
 
 -- turn on termguicolors
 opt.termguicolors = true
--- opt.background = "dark"
 opt.signcolumn = "yes"
 
 -- backspace setup
