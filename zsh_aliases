@@ -18,6 +18,9 @@ alias shop="projects && cd shop"
 alias shop-admin="shop && cd tb-shop-admin"
 alias shop-ui="shop && cd tb-shop-ui"
 
+# Project aliases
+alias bump-api="projects && cd tb-bump-api"
+
 alias contentful-utils="shop && cd tb-contentful-utils"
 
 # AWS Credentials aliases
