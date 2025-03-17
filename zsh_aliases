@@ -56,3 +56,6 @@ alias de='dexec'
 dcustomexec(){docker ps | fzf | awk '{print $1}' | xargs -I {} docker exec -it {} $1}
 alias dce='dexec'
 
+# pnpm alias
+alias pn="pnpm"
+
