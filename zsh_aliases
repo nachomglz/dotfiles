@@ -1,0 +1,72 @@
+# Aliases
+alias vim='nvim --listen /tmp/nvim-server.pipe'
+alias projects="cd ~/projects"
+alias platform="projects && cd the-bump-platform"
+alias babynames="platform && cd platforms/apps/babyname"
+alias member="projects && cd APIS/tb-member-api"
+alias broadcast="projects && cd APIS/tb-broadcast-node"
+alias content="projects && cd APIS/tb-content-api"
+alias goContentful="projects && cd APIS/tb-contentful-api-node"
+alias lg="lazygit"
+alias gpush="git push"
+alias gpull="git pull"
+alias tas="tmux attach-session -t"
+alias ar="projects && scripts/tb-bau-automations/src/article-report"
+
+# Shop aliases
+alias shop="projects && cd shop"
+alias shop-admin="shop && cd tb-shop-admin"
+alias shop-ui="shop && cd tb-shop-ui"
+
+# Project aliases
+alias bump-api="projects && cd tb-bump-api"
+
+alias contentful-utils="shop && cd tb-contentful-utils"
+
+# AWS Credentials aliases
+alias get-qa-token='aws eks get-token --cluster-name tkww-preprod-thor-cluster'
+alias get-prod-token='aws eks get-token --cluster-name tkww-prod-ironman-cluster'
+
+# Kubectl aliases
+alias k='kubectl'
+kdesc(){kubectl get $1 | fzf | awk '{print $1}' | xargs -I {} kubectl describe $1 {}}
+alias kd='kdesc'
+kexec(){kubectl get $1 | fzf | awk '{print $1}' | xargs -I {} kubectl exec $1/{} -- bash}
+alias ke='kexec'
+klog(){kubectl get $1 | fzf | awk '{print $1}' | xargs -I {} kubectl logs -f $1/{}}
+alias klogs='klog'
+kcopy(){kubectl get $1 | fzf | awk '{print $1}' | pbcopy}
+alias kcp='kcopy'
+keditt(){kubectl get $1 | fzf | awk '{print $1}' | xargs -I {} kubectl edit $1 {}}
+alias kedit='keditt'
+
+kconfigg(){
+    if [ "$1" = "qa" ]; then
+        k config use-context thor
+    elif [ "$1" = "prod" ]; then
+        k config use-context ironman
+    else
+        echo "Error: Environment must be 'qa' or 'prod'."
+    fi
+}
+alias kconfig='kconfigg'
+
+# Miscelaneous aliases
+list() { eza -la --group-directories-first --icons "$@"; }
+alias ls="list --color=auto"
+
+# Docker
+
+dremove(){docker ps -a | fzf | awk '{print $1}' | xargs -I {} docker rm {}}
+alias drm='dremove'
+
+dexec(){docker ps | fzf | awk '{print $1}' | xargs -I {} docker exec -it {} bash}
+alias de='dexec'
+
+# Do the same but with a custom command to run inside the container instead of batch, which will be provided as the last argument
+dcustomexec(){docker ps | fzf | awk '{print $1}' | xargs -I {} docker exec -it {} $1}
+alias dce='dexec'
+
+# pnpm alias
+alias pn="pnpm"
+
