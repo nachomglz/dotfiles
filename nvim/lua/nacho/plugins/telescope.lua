@@ -31,7 +31,26 @@ return {
 					"build/",
 					"dist/",
 				},
-				layout_config = { prompt_position = "top" },
+				layout_config = {
+					prompt_position = "top",
+					horizontal = {
+						preview_width = 0.5,
+						results_width = 0.5,
+					},
+					vertical = {
+						width = 0.99,
+						height = 0.4,
+						prompt_position = "top",
+					},
+					flex = {
+						flip_columns = 120,
+					},
+				},
+				layout_strategy = "bottom_pane",
+				sorting_strategy = "ascending",
+				results_title = "Results",
+				prompt_title = "Search",
+				winblend = 0,
 			},
 		})
 

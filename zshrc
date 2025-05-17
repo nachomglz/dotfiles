@@ -79,6 +79,8 @@ zinit snippet OMZP::command-not-found
 # zsh-vi-mode plugin (use vim motions in shell)
 zinit light jeffreytse/zsh-vi-mode
 
+ZVM_VI_EDITOR=nvim
+
 # Load completions
 autoload -Uz compinit && compinit
 
