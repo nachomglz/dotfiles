@@ -2,9 +2,6 @@ return {
 	"lukas-reineke/indent-blankline.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	main = "ibl",
-	opts = {
-		indent = { char = "▎" },
-	},
 	config = function()
 		local highlight = {
 			"RainbowRed",
@@ -27,6 +24,32 @@ return {
 			vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#45808B" }) -- Muted Cyan
 		end)
 
-		require("ibl").setup({ indent = { highlight = highlight } })
+		require("ibl").setup({
+			indent = {
+				char = "▎",
+				highlight = highlight,
+			},
+			scope = {
+				enabled = true,
+				show_start = false,
+				show_end = false,
+				highlight = highlight,
+			},
+			exclude = {
+				filetypes = {
+					"help",
+					"alpha",
+					"dashboard",
+					"neo-tree",
+					"Trouble",
+					"trouble",
+					"lazy",
+					"mason",
+					"notify",
+					"toggleterm",
+					"lazyterm",
+				},
+			},
+		})
 	end,
 }

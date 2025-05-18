@@ -17,31 +17,77 @@ return {
 	},
 	config = function()
 		local cmp = require("cmp")
-
 		local luasnip = require("luasnip")
-
 		local lspkind = require("lspkind")
 
-		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
+		-- loads vscode style snippets
 		require("luasnip.loaders.from_vscode").lazy_load()
+
+		-- Better formatting of completion items
+		local formatting = {
+			format = lspkind.cmp_format({
+				mode = "symbol_text",
+				maxwidth = 50,
+				ellipsis_char = "...",
+				menu = {
+					buffer = "[Buffer]",
+					nvim_lsp = "[LSP]",
+					luasnip = "[Snippet]",
+					path = "[Path]",
+				},
+				before = function(entry, vim_item)
+					-- Get the full snippet text
+					if entry.source.name == "luasnip" then
+						vim_item.abbr = string.format("%s %s", vim_item.abbr, "✂️")
+					end
+					return vim_item
+				end,
+			}),
+		}
 
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
 			},
-			snippet = { -- configure how nvim-cmp interacts with snippet engine
+			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
 				end,
 			},
+			window = {
+				completion = cmp.config.window.bordered({
+					winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+				}),
+				documentation = cmp.config.window.bordered({
+					winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+				}),
+			},
 			mapping = cmp.mapping.preset.insert({
-				["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-				["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+				["<C-k>"] = cmp.mapping.select_prev_item(),
+				["<C-j>"] = cmp.mapping.select_next_item(),
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
-				["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-				["<C-e>"] = cmp.mapping.abort(), -- close completion window
+				["<C-Space>"] = cmp.mapping.complete(),
+				["<C-e>"] = cmp.mapping.abort(),
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
+				["<Tab>"] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						cmp.select_next_item()
+					elseif luasnip.expand_or_jumpable() then
+						luasnip.expand_or_jump()
+					else
+						fallback()
+					end
+				end, { "i", "s" }),
+				["<S-Tab>"] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						cmp.select_prev_item()
+					elseif luasnip.jumpable(-1) then
+						luasnip.jump(-1)
+					else
+						fallback()
+					end
+				end, { "i", "s" }),
 			}),
 			-- sources for autocompletion
 			sources = cmp.config.sources({
@@ -50,13 +96,20 @@ return {
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
 			}),
-
-			-- configure lspkind for vs-code like pictograms in completion menu
-			formatting = {
-				format = lspkind.cmp_format({
-					maxwidth = 50,
-					ellipsis_char = "...",
-				}),
+			formatting = formatting,
+			sorting = {
+				priority_weight = 2,
+				comparators = {
+					cmp.config.compare.offset,
+					cmp.config.compare.exact,
+					cmp.config.compare.score,
+					cmp.config.compare.recently_used,
+					cmp.config.compare.locality,
+					cmp.config.compare.kind,
+					cmp.config.compare.sort_text,
+					cmp.config.compare.length,
+					cmp.config.compare.order,
+				},
 			},
 		})
 	end,

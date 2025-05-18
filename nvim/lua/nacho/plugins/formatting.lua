@@ -11,15 +11,14 @@ return {
 				javascriptreact = { "prettier" },
 				typescriptreact = { "prettier" },
 				css = { "prettier" },
-				htlm = { "prettier" },
+				html = { "prettier" },
 				json = { "prettier" },
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
 			},
-			format_on_save = {
-				lsp_fallback = true,
-				async = false,
+			format_after_save = {
+				lsp_format = "fallback",
 				timeout = 500,
 			},
 		})
