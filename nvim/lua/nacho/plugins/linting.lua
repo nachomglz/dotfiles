@@ -26,5 +26,25 @@ return {
 		vim.keymap.set("n", "<leader>ll", function()
 			lint.try_lint()
 		end, { desc = "Trigger linting for current file" })
+
+		vim.keymap.set("n", "<leader>lf", function()
+			local filename = vim.api.nvim_buf_get_name(0)
+			if filename == "" then
+				vim.notify("No file to fix", vim.log.levels.WARN)
+				return
+			end
+
+			-- Save the file first
+			vim.cmd("write")
+
+			-- Run eslint --fix
+			local cmd = string.format("eslint_d --fix %s", vim.fn.shellescape(filename))
+			vim.fn.system(cmd)
+
+			-- Reload the buffer to show changes
+			vim.cmd("edit!")
+
+			vim.notify("ESLint autofix applied", vim.log.levels.INFO)
+		end, { desc = "ESLint autofix current file" })
 	end,
 }
