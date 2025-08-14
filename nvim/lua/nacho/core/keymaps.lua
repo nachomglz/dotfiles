@@ -50,3 +50,8 @@ vim.keymap.set("n", "<leader>r", ":%s/<C-r><C-w>/", { desc = "Replace word under
 vim.keymap.set({ "v" }, "<leader>rl", function()
 	return ":s/<C-r><C-w>/ /g<left><left><C-h>"
 end, { expr = true, desc = "Replace word under cursor in selected lines" })
+
+-- Dbee
+keymap.set("n", "<leader>do", function() require("dbee").open() end, { desc = "Open dbee UI" })
+keymap.set("n", "<leader>dc", function() require("dbee").close() end, { desc = "Close dbee UI" })
+keymap.set("n", "<leader>dt", function() require("dbee").toggle() end, { desc = "Toggle dbee UI" })

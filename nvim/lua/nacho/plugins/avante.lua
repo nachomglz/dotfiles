@@ -5,8 +5,10 @@ return {
 	version = false,
 	opts = {
 		provider = "openai",
-		openai = {
-			model = "gpt-4o-mini",
+		providers = {
+			openai = {
+				model = "gpt-4o-mini",
+			},
 		},
 	},
 	build = "make",
