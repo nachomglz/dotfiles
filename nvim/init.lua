@@ -1,4 +1,4 @@
 require("nacho.core")
 require("nacho.lazy")
 
-vim.cmd("colorscheme synthwave84")
+vim.cmd("colorscheme nordic")
