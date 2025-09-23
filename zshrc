@@ -126,5 +126,7 @@ bindkey '^ ' autosuggest-accept
 
 source ~/.config/zsh_aliases
 
+bindkey '^L' clear-screen
+
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
 

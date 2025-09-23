@@ -12,6 +12,7 @@ alias gpush="git push"
 alias gpull="git pull"
 alias tas="tmux attach-session -t"
 alias ar="projects && scripts/tb-bau-automations/src/article-report"
+alias cat="bat"
 
 # Shop aliases
 alias shop="projects && cd shop"
