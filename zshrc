@@ -134,4 +134,4 @@ bindkey '^L' clear-screen
 # bun completions
 [ -s "/Users/nachomglz/.bun/_bun" ] && source "/Users/nachomglz/.bun/_bun"
 export PATH="/Users/nachomglz/.bun/bin:$PATH"
-export TMPDIR="$HOME/.tmp"
+# export TMPDIR="$HOME/.tmp"

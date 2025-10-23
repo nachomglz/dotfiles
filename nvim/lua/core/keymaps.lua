@@ -39,3 +39,13 @@ end, { desc = "Toggle Scratch Buffer" })
 keymap.set("n", "<leader>S", function()
 	Snacks.scratch.select()
 end, { desc = "Select Scratch Buffer" })
+
+-- terminal (toggleterm for basic terminal)
+keymap.set("n", "<leader>tt", "<cmd>ToggleTerm<CR>", { desc = "Toggle Terminal" })
+
+-- terminal mode keybindings
+keymap.set("t", "<leader>tt", "<cmd>ToggleTerm<CR>", { desc = "Toggle Terminal" })
+keymap.set("t", "<C-h>", "<cmd>wincmd h<CR>", { desc = "Navigate to left window" })
+keymap.set("t", "<C-j>", "<cmd>wincmd j<CR>", { desc = "Navigate to bottom window" })
+keymap.set("t", "<C-k>", "<cmd>wincmd k<CR>", { desc = "Navigate to top window" })
+keymap.set("t", "<C-l>", "<cmd>wincmd l<CR>", { desc = "Navigate to right window" })

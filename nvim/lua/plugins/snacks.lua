@@ -15,7 +15,13 @@ return {
 		rename = { enabled = true },
 		gitbrowse = { enabled = true },
 		lazygit = { enabled = true },
-		terminal = { enabled = true },
+		terminal = {
+			enabled = true,
+			win = {
+				position = "float",
+				backdrop = 60,
+			},
+		},
 		win = { enabled = true },
 	},
 }
