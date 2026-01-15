@@ -1,16 +1,16 @@
 return {
 	-- { "catppuccin/nvim", name = "catppuccin" },
-	-- {
-	-- 	"catppuccin/nvim",
-	-- 	name = "catppuccin-latte",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("catppuccin").setup({
-	-- 			flavour = "latte", -- other options: "mocha", "frappe", "macchiato"
-	-- 		})
-	-- 		vim.cmd.colorscheme("catppuccin-latte")
-	-- 	end,
-	-- },
+	{
+		"catppuccin/nvim",
+		name = "catppuccin-mocha",
+		priority = 1000,
+		config = function()
+			require("catppuccin").setup({
+				flavour = "mocha", -- other options: "mocha", "frappe", "macchiato"
+			})
+			vim.cmd.colorscheme("catppuccin-mocha")
+		end,
+	},
 	-- { "neanias/everforest-nvim" },
 	-- { "ellisonleao/gruvbox.nvim" },
 	-- { "rebelot/kanagawa.nvim" },
@@ -19,13 +19,13 @@ return {
 	-- 	name = "mars",
 	-- },
 	-- { "tahayvr/matteblack.nvim", lazy = false, priority = 1000 },
-	{
-    "EdenEast/nightfox.nvim", lazy = false, priority = 1000,
-    config = function()
-      require("nightfox").setup({})
-    end,
-
-  },
+	-- {
+	--    "EdenEast/nightfox.nvim", lazy = false, priority = 1000,
+	--    config = function()
+	--      require("nightfox").setup({})
+	--    end,
+	--
+	--  },
 	-- {
 	-- 	"ribru17/bamboo.nvim",
 	-- 	lazy = false,

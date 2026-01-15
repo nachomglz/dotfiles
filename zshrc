@@ -6,6 +6,9 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# Load proto before nvm so nvm takes priority
+export PATH="$HOME/.proto/bin:$PATH"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -135,3 +138,5 @@ bindkey '^L' clear-screen
 [ -s "/Users/nachomglz/.bun/_bun" ] && source "/Users/nachomglz/.bun/_bun"
 export PATH="/Users/nachomglz/.bun/bin:$PATH"
 # export TMPDIR="$HOME/.tmp"
+
+export PATH="$HOME/.moon/bin:$PATH"
