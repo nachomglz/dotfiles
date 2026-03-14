@@ -1,14 +1,25 @@
 return {
 	-- { "catppuccin/nvim", name = "catppuccin" },
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	name = "catppuccin-mocha",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("catppuccin").setup({
+	-- 			flavour = "mocha", -- other options: "mocha", "frappe", "macchiato"
+	-- 		})
+	-- 		vim.cmd.colorscheme("catppuccin-mocha")
+	-- 	end,
+	-- },
 	{
-		"catppuccin/nvim",
-		name = "catppuccin-mocha",
+		"sainnhe/gruvbox-material",
+		lazy = false,
 		priority = 1000,
 		config = function()
-			require("catppuccin").setup({
-				flavour = "mocha", -- other options: "mocha", "frappe", "macchiato"
-			})
-			vim.cmd.colorscheme("catppuccin-mocha")
+			-- Optionally configure and load the colorscheme
+			-- directly inside the plugin declaration.
+			vim.g.gruvbox_material_enable_italic = true
+			vim.cmd.colorscheme("gruvbox-material")
 		end,
 	},
 	-- { "neanias/everforest-nvim" },

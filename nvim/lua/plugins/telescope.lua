@@ -1,9 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
-		-- FIXME: use the new master branch and fix warnings and deprecation errors
-		-- branch = "master",
+		branch = "master",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
