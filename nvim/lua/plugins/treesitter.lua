@@ -1,10 +1,9 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	branch = "main",
-	event = { "BufReadPre", "BufNewFile" },
+	lazy = false,
 	build = ":TSUpdate",
 	config = function()
-		-- Use the new API
 		local langs = {
 			"json",
 			"javascript",
@@ -25,10 +24,26 @@ return {
 			"vimdoc",
 			"rust",
 			"go",
-			"prisma",
 		}
 
-		-- Install parsers using the new API
+		-- Install parsers (new main-branch API)
 		require("nvim-treesitter").install(langs)
+
+		-- The main branch does NOT provide highlight/indent modules,
+		-- so enable them per-buffer via the core treesitter API.
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function(args)
+				local ft = vim.bo[args.buf].filetype
+				local lang = vim.treesitter.language.get_lang(ft)
+				if not lang then
+					return
+				end
+				if not pcall(vim.treesitter.start, args.buf, lang) then
+					return
+				end
+				-- treesitter-based indentation (experimental on main)
+				vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end,
+		})
 	end,
 }

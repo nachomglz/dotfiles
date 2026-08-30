@@ -86,6 +86,7 @@ alias s3up='s3upload'
 # Miscelaneous aliases
 list() { eza -la --group-directories-first --icons "$@"; }
 alias ls="list --color=auto"
+alias l="ls"
 
 # Docker
 

@@ -1,20 +1,7 @@
-export ZSH="$HOME/.oh-my-zsh"
-
-ZSH_THEME="refined" # set by `omz`
-
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
-# Load proto before nvm so nvm takes priority
 export PATH="$HOME/.proto/bin:$PATH"
 
 # Add ~/.local/bin to path
 export PATH="$HOME/.local/bin:$PATH"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 # pnpm
@@ -26,7 +13,7 @@ esac
 # pnpm end
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-fpath=(~/.docker/completions \/Users/nmartingonzalez/.oh-my-zsh/plugins/git /Users/nmartingonzalez/.oh-my-zsh/functions /Users/nmartingonzalez/.oh-my-zsh/completions /Users/nmartingonzalez/.oh-my-zsh/custom/functions /Users/nmartingonzalez/.oh-my-zsh/custom/completions /Users/nmartingonzalez/.oh-my-zsh/cache/completions /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/5.9/functions)
+fpath=(~/.docker/completions /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/5.9/functions)
 autoload -Uz compinit
 compinit
 
@@ -138,8 +125,8 @@ bindkey '^L' clear-screen
 
 
 # bun completions
-[ -s "/Users/nachomglz/.bun/_bun" ] && source "/Users/nachomglz/.bun/_bun"
-export PATH="/Users/nachomglz/.bun/bin:$PATH"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+export PATH="$HOME/.bun/bin:$PATH"
 # export TMPDIR="$HOME/.tmp"
 
 export PATH="$HOME/.moon/bin:$PATH"
@@ -147,3 +134,7 @@ export PATH="$HOME/.moon/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

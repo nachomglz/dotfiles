@@ -60,13 +60,13 @@ return {
 			keymap.set(
 				"n",
 				"<leader>ff",
-				"<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>",
+				"<cmd>Telescope find_files find_command=rg,--hidden,--no-ignore-vcs,--files<cr>",
 				{ desc = "Fuzzy find files in current working dir" }
 			)
 			keymap.set(
 				"n",
 				"<leader><leader>",
-				"<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>",
+				"<cmd>Telescope find_files find_command=rg,--hidden,--no-ignore-vcs,--files<cr>",
 				{ desc = "Fuzzy find files in current working dir" }
 			)
 			keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
