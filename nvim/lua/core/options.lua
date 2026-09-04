@@ -23,9 +23,9 @@ opt.smartcase = true -- search case sensitive if you add case letters when searc
 -- highlight cursor line
 opt.cursorline = true
 
--- turn on termguicolors
--- opt.termguicolors = true
--- opt.signcolumn = "yes"
+opt.numberwidth = 2 -- 1 digit + 1 space; grows automatically if needed
+opt.signcolumn = "yes:1"
+opt.foldcolumn = "0"
 
 -- backspace setup
 opt.backspace = "indent,eol,start" -- allow backspace on ident, end of line or insert mode start position

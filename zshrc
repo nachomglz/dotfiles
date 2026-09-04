@@ -17,6 +17,10 @@ fpath=(~/.docker/completions /usr/local/share/zsh/site-functions /usr/share/zsh/
 autoload -Uz compinit
 compinit
 
+# Use neovim as the default editor and visual editor
+export EDITOR=nvim
+export VISUAL=nvim
+
 # Add pip scripts to path
 export PATH="$HOME/Library/Python/3.9/bin:$PATH"
 
@@ -117,7 +121,7 @@ bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
 bindkey '^ ' autosuggest-accept
 
-source ~/.config/zsh_aliases
+source ~/zsh_aliases
 
 bindkey '^L' clear-screen
 
@@ -138,3 +142,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Execute .env files
+eval "$(direnv hook zsh)"

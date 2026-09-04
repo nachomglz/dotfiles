@@ -11,6 +11,39 @@ return {
 			local actions = require("telescope.actions")
 			local builtin = require("telescope.builtin")
 
+			-- Prune heavy dirs inside rg instead of letting telescope filter them in Lua.
+			-- --no-ignore-vcs keeps gitignored generated sources (e.g. src/generated/) findable.
+			local function find_command()
+				return {
+					"rg",
+					"--files",
+					"--hidden",
+					"--no-ignore-vcs",
+					"--color",
+					"never",
+					"-g",
+					"!.git",
+					"-g",
+					"!node_modules",
+					"-g",
+					"!.sst",
+					"-g",
+					"!.claude/worktrees",
+					"-g",
+					"!out",
+					"-g",
+					"!.next",
+					"-g",
+					"!.turbo",
+					"-g",
+					"!dist",
+					"-g",
+					"!build",
+					"-g",
+					"!coverage",
+				}
+			end
+
 			telescope.setup({
 				defaults = {
 					path_display = { "absolute" },
@@ -22,11 +55,11 @@ return {
 						},
 					},
 					file_ignore_patterns = {
-						".git/",
+						"%.git/",
 						"node_modules/",
-						"*[Cc]ache/",
-						"*-cache*",
-						".next/",
+						"[Cc]ache/",
+						"%-cache",
+						"%.next/",
 						"public/",
 						"build/",
 						"dist/",
@@ -50,6 +83,11 @@ return {
 					prompt_title = "Search",
 					winblend = 0,
 				},
+				pickers = {
+					find_files = {
+						find_command = find_command,
+					},
+				},
 			})
 
 			telescope.load_extension("fzf")
@@ -57,18 +95,8 @@ return {
 			-- set keymaps
 			local keymap = vim.keymap
 
-			keymap.set(
-				"n",
-				"<leader>ff",
-				"<cmd>Telescope find_files find_command=rg,--hidden,--no-ignore-vcs,--files<cr>",
-				{ desc = "Fuzzy find files in current working dir" }
-			)
-			keymap.set(
-				"n",
-				"<leader><leader>",
-				"<cmd>Telescope find_files find_command=rg,--hidden,--no-ignore-vcs,--files<cr>",
-				{ desc = "Fuzzy find files in current working dir" }
-			)
+			keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Fuzzy find files in current working dir" })
+			keymap.set("n", "<leader><leader>", builtin.find_files, { desc = "Fuzzy find files in current working dir" })
 			keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 			keymap.set(
 				"n",
