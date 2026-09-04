@@ -1,1 +1,16 @@
 theme = Kanagawa Wave
+minimum-contrast = 1.1
+
+font-family = "JetBrainsMono Nerd Font"
+font-size = 14
+font-thicken = true
+
+background-opacity = 0.95
+background-blur = 20
+
+window-padding-balance = true
+unfocused-split-opacity = 0.7
+macos-titlebar-style = tabs
+
+mouse-hide-while-typing = true
+cursor-style-blink = false

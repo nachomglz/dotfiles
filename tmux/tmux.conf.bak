@@ -1,0 +1,74 @@
+# vi keybindings
+setw -g mode-keys vi
+set -g status-keys vi
+
+# Enable mouse
+set -g mouse on
+
+# Standard tmux pane navigation (prefix + hjkl)
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Pane resizing (prefix + Ctrl+hjkl) with repeat
+bind -r C-h resize-pane -L 3
+bind -r C-j resize-pane -D 3
+bind -r C-k resize-pane -U 3
+bind -r C-l resize-pane -R 3
+
+
+# Vim-style copy mode
+bind-key -T copy-mode-vi v send -X begin-selection
+bind-key -T copy-mode-vi V send -X select-line
+bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
+
+# Copy mode niceties
+bind / copy-mode \; send-keys ?
+bind -T copy-mode-vi C-v send -X rectangle-toggle
+bind -T copy-mode-vi Escape send -X cancel
+
+# Splits and windows inherit the current directory — tmux's worst default
+bind c new-window      -c "#{pane_current_path}"
+bind '"' split-window  -v -c "#{pane_current_path}"
+bind %   split-window  -h -c "#{pane_current_path}"
+
+# Rounded popups, matched to the theme
+set -g popup-border-lines rounded
+set -g popup-border-style "fg=#54546D"
+
+# Misc settings
+set -g detach-on-destroy off
+set -g status-position bottom
+set-option -g repeat-time 500
+set -g history-limit 30000
+
+# Keep default prefix (Ctrl+B)
+set-option -g prefix C-b
+
+# Reload config
+bind-key r source-file ~/.config/tmux/tmux.conf \; display-message "Config reloaded"
+
+# Terminal settings
+set -g  default-terminal "tmux-256color"
+set -as terminal-features ",*:RGB"
+
+# Theme
+set -g @plugin 'Nybkox/tmux-kanagawa'
+set -g @kanagawa-theme 'wave'
+set -g @kanagawa-plugins "cpu-usage ram-usage"
+
+# Plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Tmux thumbs 
+set -g @plugin 'fcsonline/tmux-thumbs'
+set -g @thumbs-command 'echo -n {} | pbcopy'
+set -g @thumbs-contrast 1
+## Match URLs with localhost and a port number, e.g., http://localhost:3000
+set -g @thumbs-regexp-2 'https?://localhost:[0-9]+[^\s]*'
+
+# Initialize plugin manager
+set-environment -g TMUX_PLUGIN_MANAGER_PATH '~/.config/tmux/plugins/'
+run '~/.config/tmux/plugins/tpm/tpm'
