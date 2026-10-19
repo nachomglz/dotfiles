@@ -145,3 +145,4 @@ export NVM_DIR="$HOME/.config/nvm"
 
 # Execute .env files
 eval "$(direnv hook zsh)"
+eval "$(mise activate zsh)"

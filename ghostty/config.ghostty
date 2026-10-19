@@ -5,7 +5,7 @@ font-family = "JetBrainsMono Nerd Font"
 font-size = 14
 font-thicken = true
 
-background-opacity = 0.95
+background-opacity = 0.85
 background-blur = 20
 
 window-padding-balance = true
